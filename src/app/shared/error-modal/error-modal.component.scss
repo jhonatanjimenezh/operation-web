@@ -1,0 +1,44 @@
+@import '/src/assets/scss/utils/variables';
+
+.modal-content {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: $font-base;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    position: relative;
+    &::after {
+      content: "";
+      width: 70px; // Half of what you have for the main header to keep it proportional
+      background: $base-color;
+      height: 2px; // Thinner line for a subtler effect
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  p {
+    font-family: $font-base;
+    font-size: 1rem;
+    color: #000000;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  .modal-close-button {
+    font-family: $font-base;
+    font-weight: 600;
+    color: $base-color; // Use the base color for consistency
+    border: 1px solid $base-color; // Match the style of your "Enter maximum" button
+    padding: 0.5rem 1rem;
+    &:hover {
+      background-color: $base-color; // Optional: add a hover effect
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<ngx-loading-bar></ngx-loading-bar>
+
+<div class="main-container">
+  <div class="value-list">
+    <form [formGroup]="operationForm" (ngSubmit)="onSubmit()">
+      <mat-card class="operation-form">
+        <mat-card-content>
+          <div class="horizontal-sections">
+            <div class="section">
+              <label>Añade el valor de <span>X</span></label>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  formControlName="x"
+                  placeholder="Añade el valor de X"
+                  type="number"
+                  (keydown.enter)="preventInputSubmit($event)"
+                />
+                <mat-hint
+                  *ngIf="x?.invalid && (x?.dirty || x?.touched)"
+                  class="hint"
+                >
+                  <span class="required-field">
+                    Campo inválido, solo debe de ser numeros
+                  </span>
+                </mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="section">
+              <label>Añade el valor de <span>Y</span></label>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  formControlName="y"
+                  placeholder="Escribe la pregunta"
+                  type="number"
+                  (keydown.enter)="preventInputSubmit($event)"
+                />
+                <mat-hint
+                  *ngIf="y?.invalid && (y?.dirty || y?.touched)"
+                  class="hint"
+                >
+                  <span class="required-field">
+                    Campo inválido, solo debe de ser numeros
+                  </span>
+                </mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="section">
+              <label>Añade el valor de <span>N</span></label>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  formControlName="n"
+                  placeholder="Escribe la pregunta"
+                  type="number"
+                  (keydown.enter)="preventInputSubmit($event)"
+                />
+                <mat-hint
+                  *ngIf="n?.invalid && (n?.dirty || n?.touched)"
+                  class="hint"
+                >
+                  <span class="required-field">
+                    Campo inválido, solo debe de ser numeros
+                  </span>
+                </mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div class="operation-form__action">
+        <button
+          mat-raised-button
+          color="primary"
+          class="mat-elevation-z0 main-button add-button no-shadow operation-form__action--save"
+          [disabled]="x.invalid || y.invalid || n.invalid"
+        >
+          Entero máximo
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
